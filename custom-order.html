@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Custom Art Order – Your Art Gallery</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>Paintique</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="custom-order.html">Custom Order</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="form-section">
+    <h2>Request Custom Artwork</h2>
+    <p>Describe the art you want — sketches, portraits, wall paintings, anything!</p>
+
+    <form class="order-form" action="#" method="POST">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" placeholder="Your full name" required />
+
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required />
+
+      <label for="art-type">Type of Artwork:</label>
+      <select id="art-type" name="art-type" required>
+        <option value="">Select type</option>
+        <option value="portrait">Portrait</option>
+        <option value="sketch">Pencil Sketch</option>
+        <option value="digital">Digital Art</option>
+        <option value="painting">Acrylic/Oil Painting</option>
+        <option value="wall-painting">Wall Art</option>
+      </select>
+
+      <label for="size">Preferred Size (in inches or A4/A3):</label>
+      <input type="text" id="size" name="size" placeholder="e.g., A4, 12x16 inches" required />
+
+      <label for="message">Description:</label>
+      <textarea id="message" name="message" rows="5" placeholder="Describe your idea, style, or upload reference via WhatsApp…" required></textarea>
+
+      <button type="submit" class="btn">Submit Request</button>
+
+      <p class="note">Want to send a photo reference? <br>
+        <a href="https://wa.me/91YOURNUMBERHERE" target="_blank" class="btn">Send via WhatsApp</a>
+      </p>
+    </form>
+  </main>
+
+  <footer>
+    <p>© 2025 Paintique. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

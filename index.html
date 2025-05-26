@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Paintique - Buy, Sell Paintings and Decors</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1 class="brand">Paintique</h1>
+
+            <!-- Menu icon for mobile -->
+            <div class="menu-toggle" onclick="toggleMenu()">⋯</div>
+
+            <nav id="navbar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="custom-order.html">Custom Order</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html" class="btn login-btn">Login</a></li>
+                    <li><a href="signup.html" class="btn signup-btn">Sign Up</a></li>
+                </ul>
+            </nav>
+        </div>
+
+    </header>
+
+    <section class="hero">
+        <h2>Beautiful Paintings for Your Home</h2>
+        <p>Original, custom, and printed artworks for every space</p>
+        <a href="shop.html" class="btn">Shop Now</a>
+    </section>
+
+    <section class="gallery-preview">
+        <h3>Featured Artworks</h3>
+        <div class="gallery">
+            <img src="images/art1.jpg" alt="Artwork 1">
+            <img src="images/art2.jpg" alt="Artwork 2">
+            <img src="images/art3.jpg" alt="Artwork 3">
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Paintique. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('nav ul');
+            navLinks.classList.toggle('show');
+        }
+    </script>
+
+
+</body>
+
+</html>
