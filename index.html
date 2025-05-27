@@ -17,20 +17,26 @@
             <!-- Menu icon for mobile -->
             <div class="menu-toggle" onclick="toggleMenu()">⋯</div>
 
+            <!-- Normal navigation menu -->
             <nav id="navbar">
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="shop.html">Shop</a></li>
                     <li><a href="custom-order.html">Custom Order</a></li>
-                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li><a href="login.html" class="btn login-btn">Login</a></li>
                     <li><a href="signup.html" class="btn signup-btn">Sign Up</a></li>
                 </ul>
             </nav>
-        </div>
 
+            <!-- Profile icon - always visible -->
+            <div id="profile-icon" style="display: none;">
+                <a href="profile.html" title="Profile" style="font-size: 22px; text-decoration: none;">👤</a>
+            </div>
+        </div>
     </header>
+
 
     <section class="hero">
         <h2>Beautiful Paintings for Your Home</h2>
@@ -41,9 +47,9 @@
     <section class="gallery-preview">
         <h3>Featured Artworks</h3>
         <div class="gallery">
-            <img src="images/art1.jpg" alt="Artwork 1">
-            <img src="images/art2.jpg" alt="Artwork 2">
-            <img src="images/art3.jpg" alt="Artwork 3">
+            <img src="Images/art1.jpg" alt="Artwork 1">
+            <img src="Images/art2.jpg" alt="Artwork 2">
+            <img src="Images/art3.jpg" alt="Artwork 3">
         </div>
     </section>
 
@@ -56,6 +62,37 @@
             const navLinks = document.querySelector('nav ul');
             navLinks.classList.toggle('show');
         }
+
+        // Check login state
+        const loggedIn = localStorage.getItem("loggedIn") === "true";
+
+        const authButtons = document.getElementById("auth-buttons");
+        const profileIcon = document.getElementById("profile-icon");
+
+        if (loggedIn) {
+            authButtons.style.display = "none";
+            profileIcon.style.display = "inline-block";
+        } else {
+            authButtons.style.display = "inline-block";
+            profileIcon.style.display = "none";
+        }
+
+    </script>
+
+    <script>
+        // Show/hide login/signup or profile icon
+        window.addEventListener("DOMContentLoaded", function () {
+            const isLoggedIn = localStorage.getItem("loggedIn");
+            const profileIcon = document.getElementById("profile-icon");
+            const loginBtn = document.querySelector(".login-btn");
+            const signupBtn = document.querySelector(".signup-btn");
+
+            if (isLoggedIn) {
+                profileIcon.style.display = "block";
+                if (loginBtn) loginBtn.style.display = "none";
+                if (signupBtn) signupBtn.style.display = "none";
+            }
+        });
     </script>
 
 
