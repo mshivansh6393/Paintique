@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Paintique</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f5f5f5;
+      padding: 40px;
+    }
+
+    .login-container {
+      background: white;
+      max-width: 400px;
+      margin: auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #333;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #000;
+    }
+
+    .bottom-text {
+      text-align: center;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login to Paintique</h2>
+    <input type="email" placeholder="Email" id="login-email" required />
+    <input type="password" placeholder="Password" id="login-password" required />
+    <button onclick="login()">Login</button>
+
+    <div class="bottom-text">
+      Don't have an account? <a href="signup.html">Sign Up</a>
+    </div>
+  </div>
+
+  <script>
+    function login() {
+      // Simulated check
+      const email = document.getElementById("login-email").value;
+      const pass = document.getElementById("login-password").value;
+
+      if (email && pass) {
+        localStorage.setItem("loggedIn", "true");
+        window.location.href = "index.html"; // Redirect to homepage
+      } else {
+        alert("Please enter both email and password.");
+      }
+    }
+  </script>
+</body>
+</html>

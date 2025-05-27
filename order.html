@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .product-info, .address-section, .payment-methods {
+      margin-bottom: 20px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #000;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #333;
+    }
+    #nextStep {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Complete Your Order</h2>
+
+  <div class="product-info">
+    <img id="productImage" src="" alt="Product Image" style="width:200px; height:auto;">
+    <h3 id="productName"></h3>
+    <p id="productPrice"></p>
+  </div>
+
+  <div class="address-section">
+    <h4>Enter Delivery Address:</h4>
+    <input type="text" id="customerName" placeholder="Full Name" required><br><br>
+    <input type="text" id="address" placeholder="Address" required><br><br>
+    <input type="text" id="pincode" placeholder="Pincode" required><br><br>
+    <input type="text" id="phone" placeholder="Phone Number" required><br><br>
+    <button class="btn" onclick="showNextStep()">Next</button>
+  </div>
+
+  <div class="payment-methods" id="nextStep">
+    <h4>Select Payment Method:</h4>
+    <label><input type="radio" name="payment" value="cod"> Cash on Delivery (COD)</label><br>
+    <label><input type="radio" name="payment" value="others" disabled> UPI / Card (Coming Soon)</label><br><br>
+    <button id="placeOrder" class="btn">Place Order</button>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const product = params.get("product");
+    const price = params.get("price");
+
+    document.getElementById("productName").innerText = product;
+    document.getElementById("productPrice").innerText = `Price: ₹${price}`;
+    document.getElementById("productImage").src = `images/${product.replace(/\s+/g, '-')}.jpg`;
+
+    function showNextStep() {
+      const name = document.getElementById("customerName").value;
+      const address = document.getElementById("address").value;
+      const pincode = document.getElementById("pincode").value;
+      const phone = document.getElementById("phone").value;
+
+      if (name && address && pincode && phone) {
+        document.getElementById("nextStep").style.display = "block";
+      } else {
+        alert("Please fill in all address details.");
+      }
+    }
+
+    document.getElementById("placeOrder").onclick = () => {
+      const url = `order_confirm.html?product=${encodeURIComponent(product)}&price=${price}`;
+      window.location.href = url;
+    };
+  </script>
+</body>
+</html>

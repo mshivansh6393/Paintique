@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Profile - Paintique</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background: #f4f4f4;
+            padding: 40px;
+        }
+
+        .profile-container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .profile-icon {
+            font-size: 60px;
+            color: #444;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            margin: 10px 0;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        button {
+            padding: 12px 24px;
+            border: none;
+            background: #333;
+            color: white;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #000;
+        }
+
+        .profile-container {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            cursor: pointer;
+        }
+
+        .profile-icon {
+            font-size: 22px;
+        }
+
+        .profile-menu {
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            position: absolute;
+            top: 35px;
+            right: 0;
+            min-width: 150px;
+            z-index: 999;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-menu a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .profile-menu a:hover {
+            background: #f2f2f2;
+        }
+
+        .profile-menu hr {
+            margin: 5px 0;
+            border: 0;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Profile Icon with Dropdown -->
+    <div id="profile-icon" class="profile-container" style="display: none;">
+        <div onclick="toggleProfileMenu()" class="profile-icon">👤</div>
+        <div id="profile-menu" class="profile-menu" style="display: none;">
+            <a href="my-orders.html">My Orders</a>
+            <a href="edit-profile.html">Edit Profile</a>
+            <a href="help.html">Help</a>
+            <hr>
+            <a href="#" onclick="logout()">Logout</a>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        // Redirect to login if not logged in
+        if (!localStorage.getItem("loggedIn")) {
+            window.location.href = "login.html";
+        }
+
+        function logout() {
+            localStorage.removeItem("loggedIn");
+            window.location.href = "index.html";
+        }
+    </script>
+
+    <!-- for dropdown options  -->
+    <script>
+        function toggleProfileMenu() {
+          const menu = document.getElementById("profile-menu");
+          menu.style.display = menu.style.display === "block" ? "none" : "block";
+        }
+      
+        function logout() {
+          localStorage.removeItem("loggedIn");
+          window.location.href = "login.html";
+        }
+      
+        // Show profile icon if logged in
+        document.addEventListener("DOMContentLoaded", function () {
+          const isLoggedIn = localStorage.getItem("loggedIn");
+          const profileIcon = document.getElementById("profile-icon");
+          const loginBtn = document.querySelector(".login-btn");
+          const signupBtn = document.querySelector(".signup-btn");
+      
+          if (isLoggedIn && profileIcon) {
+            profileIcon.style.display = "block";
+            if (loginBtn) loginBtn.style.display = "none";
+            if (signupBtn) signupBtn.style.display = "none";
+          }
+        });
+      </script>
+      
+
+</body>
+
+</html>
