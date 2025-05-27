@@ -487,4 +487,78 @@ footer {
   .signup-btn:hover {
     background-color: #444;
   }
+
+  /* CSS for the search bar  */
+
+  .search-bar {
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .search-bar input {
+    width: 90%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #aaa;
+    border-radius: 8px;
+    outline: none;
+  }
+
+  /* for profile icon  */
+
+  #profile-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  /* for options in profile */
+
+  .profile-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+  }
+  
+  .profile-icon {
+    font-size: 24px;
+    cursor: pointer;
+    background: #eee;
+    border-radius: 50%;
+    padding: 8px 10px;
+  }
+  
+  .profile-menu {
+    position: absolute;
+    right: 0;
+    top: 40px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    display: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 160px;
+  }
+  
+  .profile-menu a {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .profile-menu a:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .profile-menu hr {
+    margin: 5px 0;
+    border: none;
+    border-top: 1px solid #ddd;
+  }
+  
+  
   
